@@ -9,7 +9,7 @@
     "start": "node src/index.js",
     "watch": "nodemon src/index.js"
   },
-  "engine": {
+  "engines": {
     "node": "10.x.x"
   },
   "dependencies": {
