@@ -1,15 +1,21 @@
 require('dotenv').config();
 
-var express = require('express');
-var multer = require('multer');
+const express = require('express');
+const multer = require('multer');
 
-var app = express();
-var upload = multer();
+let app = express();
+let upload = multer();
 
 app.use(express.static('static'));
 
-app.post('/file', upload.single('file'), function(request, response, next) {
-  response.send({ size: request.file.size });
+app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
+  res
+    .send({
+      name: req.file.originalname,
+      type: req.file.mimetype,
+      size: req.file.size
+    })
+    .end();
 });
 
 app.listen(process.env.PORT);
