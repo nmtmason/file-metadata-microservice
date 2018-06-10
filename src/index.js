@@ -6,7 +6,7 @@ var upload = multer();
 
 app.use(express.static('static'));
 
-app.post('/file', upload.single('file'), function (request, response, next) {
+app.post('/file', upload.single('file'), function(request, response, next) {
   response.send({ size: request.file.size });
 });
 
